@@ -1,0 +1,7 @@
+
+
+__pycache__
+.idea/
+
+dataset/
+trained_model.pkl
