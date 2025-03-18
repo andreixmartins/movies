@@ -44,4 +44,5 @@ curl -L http://127.0.0.1:8000/user/1
 
 ### References
 - https://fastapi.tiangolo.com/
-- https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset 
+- https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset
+- https://grouplens.org/datasets/movielens/

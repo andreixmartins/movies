@@ -1,26 +1,26 @@
 import os
 
+from starlette.responses import HTMLResponse
+from starlette.templating import Jinja2Templates
+
 from movies import load_model, recommendations
 from typing import Union
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from fastapi import Request
 
 app = FastAPI()
+
+templates = Jinja2Templates(directory="templates")
 
 app.mount("/static", StaticFiles(directory="static", html=True), name="static")
 
 
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: Union[bool, None] = None
-
-
-@app.get("/")
-def read_root():
-    return {"Movies recommendation": "1.0"}
+@app.get("/", response_class=HTMLResponse)
+async def root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request, "message": "Movies Recommender"})
 
 
 @app.get("/user/{user_id}")

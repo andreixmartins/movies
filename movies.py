@@ -51,10 +51,12 @@ def load_model(ratings_dataset, movie_dataset, trained_model_path):
 
 def load_metadata(movie_id, movies):
     movie = movies[movies['id'] == str(movie_id)].iloc[0]
-
+    # return movie
+    # collection = json.loads(movie['belongs_to_collection'])
     data = {
         'title': movie['title'],
-        'rating': movie['vote_average']
+        'collection': movie['belongs_to_collection'],
+        'rating': movie['vote_average'],
     }
     return json.dumps(data)
 
