@@ -1,2 +1,7 @@
 pandas
 surprise
+fastapi
+pydantic
+click
+httpx
+click
